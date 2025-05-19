@@ -26,3 +26,10 @@ type BbfDepositBackReq struct {
 	UniqueCode  string `json:"uniqueCode"`
 	Signature   string `json:"signature"`
 }
+
+type BbfDepositBackRsp struct {
+	Code    int    `json:"code"`
+	Message string `json:"message"`
+	Data    string `json:"data"`
+	Success bool   `json:"success"`
+}
