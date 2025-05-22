@@ -2,13 +2,14 @@ package go_bbf
 
 // ----------pre generate-------------------------
 type BbfDepositReq struct {
-	UID        int    `json:"uid"`
-	UniqueCode string `json:"uniqueCode"`
-	Money      string `json:"money"`
-	PayType    int    `json:"payType"`
-	OrderId    string `json:"orderId"`
-	Signature  string `json:"signature"`
-	PayerName  string `json:"payerName"`
+	UniqueCode string `json:"uniqueCode" mapstructure:"uniqueCode"`
+	Money      string `json:"money" mapstructure:"money"`
+	PayType    int    `json:"payType" mapstructure:"payType"`
+	OrderId    string `json:"orderId" mapstructure:"orderId"`
+	PayerName  string `json:"payerName" mapstructure:"payerName"`
+	//这个不需要业务侧使用,而是sdk帮计算和补充
+	//Signature string `json:"signature"`
+	//UID       int    `json:"uid"`
 }
 
 type BbfDepositRsp struct {
@@ -18,13 +19,15 @@ type BbfDepositRsp struct {
 	Success bool   `json:"success"`
 }
 
+//==============================================
+
 type BbfDepositBackReq struct {
-	ApiOrderNo  string `json:"apiOrderNo"`
-	Money       string `json:"money"`
-	TradeStatus int    `json:"tradeStatus"`
-	TradeId     string `json:"tradeId"`
-	UniqueCode  string `json:"uniqueCode"`
-	Signature   string `json:"signature"`
+	ApiOrderNo  string `json:"apiOrderNo" mapstructure:"money"`
+	Money       string `json:"money" mapstructure:"money"`
+	TradeStatus int    `json:"tradeStatus" mapstructure:"tradeStatus"`
+	TradeId     string `json:"tradeId" mapstructure:"tradeId"`
+	UniqueCode  string `json:"uniqueCode" mapstructure:"uniqueCode"`
+	Signature   string `json:"signature" mapstructure:"signature"`
 }
 
 type BbfDepositBackRsp struct {
